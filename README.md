@@ -1,6 +1,6 @@
 # SQL
 
-The purpose of this file is to show a sample of my SQL techniques and abilities.
+The purpose of this repository is to show a sample of my SQL techniques and abilities.
 
 These queries are based on queries I wrote while in previous positions. 
 
