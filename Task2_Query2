@@ -3,7 +3,7 @@
 --	The account ID number and Company Name of every active account in region 3 of Italy.
 --	The count of active individuals listed in the database by office size and account.
 --	The count of individuals who were delivered at least one cake or pie between 7/1/2016 and 2/10/2017 by account and office size.
---	The average number of deliveries in the same time period per individual with at least one order in that time period, by 
+--	The average number of deliveries in the same time period per individual with at least one order in that time period, by
 --		pastry, company, and office size.
 
 
@@ -92,8 +92,8 @@ LEFT JOIN
 
 		    		WHERE
 		    		ficd.status = '2'
-		    		and (ficd.order_time > '2017-08-01 00:00:00'
-		    		and ficd.delivery_time < '2018-01-15 23:59:59')
+		    		and (ficd.order_time > '2016-07-01 00:00:00'
+		    		and ficd.delivery_time < '2017-02-10 23:59:59')
 
 		    		GROUP BY dc.acc_id_number
 	    		)
@@ -116,8 +116,8 @@ LEFT JOIN
 
 		    		WHERE
 		    		fipd.status = '2'
-		    		and fipd.order_time > '2017-08-01 00:00:00'
-		    		and fipd.delivery_time < '2018-01-15 23:59:59'
+		    		and (fipd.order_time > '2016-07-01 00:00:00'
+		    		and fipd.delivery_time < '2017-02-10 23:59:59')
 
 
 		    		GROUP BY dc.acc_id_number
@@ -131,8 +131,8 @@ LEFT JOIN
 LEFT JOIN
 --SECTION THREE
 --This section address:
---	The average number of deliveries in the same time period per individual with at least one order in that time period, by 
---		pastry, company, and office size.
+--	The average number of deliveries in the same time period per individual with at least one cake order in that time period, by
+--		company and office size.
 
 	       (
 		    	SELECT acc_id_number as aid_s3
@@ -156,9 +156,8 @@ LEFT JOIN
 
 	            	WHERE
 	            	    ficd.status = '2'
-	            	    and (ficd.order_time > '2017-08-01 00:00:00'
-	            	        and ficd.delivery_time < '2018-01-15 23:59:59')
-	            	    and ficd.profile like 'DI%'
+		    		and (ficd.order_time > '2016-07-01 00:00:00'
+		    		and ficd.delivery_time < '2017-02-10 23:59:59')
 
 	            	GROUP BY dc.acc_id_number
 	            	        , ficd.individual_id
@@ -178,4 +177,3 @@ LEFT JOIN
 
 ORDER BY aid_s1
 		, office_size
-

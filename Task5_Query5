@@ -10,8 +10,8 @@
 --QUERY FOR TASK 5
 SELECT *
 FROM
---QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later 
---	than their order year. 
+--QUERY1 The account ID number and company name for all accounts with individuals who had deliveries in a year later
+--	than their order year.
         (SELECT dc.acc_id_number
         	, dc.company_name
 
@@ -124,5 +124,3 @@ LEFT JOIN
 
 ORDER BY QUERY1.acc_id_number
 		, QUERY2.current_order_year
-		
-		
